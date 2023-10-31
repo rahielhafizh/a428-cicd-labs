@@ -22,9 +22,6 @@ pipeline {
             }
         }
         stage('Deploy') {
-            when {
-                expression { currentBuild.rawBuild.getCause(hudson.model.Cause$UserIdCause) != null }
-            }
             steps {
                 sh './jenkins/scripts/deliver.sh'
                 sh 'sleep 60'
